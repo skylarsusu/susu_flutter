@@ -23,7 +23,14 @@ class BasicDemo extends StatelessWidget {
                 color: Colors.indigoAccent[100],
                 width: 3.0,
                 style: BorderStyle.solid,
+              ),
+              // borderRadius: BorderRadius.circular(16.0),//四角都是圆角
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(64.0),
+                bottomLeft: Radius.circular(64.0),
+
               )
+
             ),
           )
         ],
