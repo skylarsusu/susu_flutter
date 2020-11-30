@@ -11,10 +11,34 @@ class LayoutDemo extends StatelessWidget {
     //   ],
     return Container(
       child: Column(//Row
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          IconBadge(Icons.pool),
-          IconBadge(Icons.beach_access),
-          IconBadge(Icons.airplanemode_active),
+          SizedBox(
+            width: 200.0,
+           height: 200.0,
+            child: Container(
+              decoration: BoxDecoration(
+                color: Color.fromRGBO(3, 54, 255, 1.0),
+                borderRadius: BorderRadius.circular(8.0),
+              ),
+              child: Icon(Icons.ac_unit, color: Colors.white, size: 32),
+            ),
+          ),
+          SizedBox(
+            height: 20.0,
+          ),
+          SizedBox(
+            width: 100.0,
+            height: 100.0,
+            child: Container(
+              decoration: BoxDecoration(
+                color: Color.fromRGBO(3, 54, 255, 1.0),
+                borderRadius: BorderRadius.circular(8.0),
+              ),
+              child: Icon(Icons.brightness_1, color: Colors.white, size: 32),
+            ),
+          )
         ],
       ),
     );
