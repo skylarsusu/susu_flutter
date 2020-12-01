@@ -12,7 +12,7 @@ class NavigatorDemo extends StatelessWidget {
                 onPressed: (){
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                        builder: (BuildContext context) => Page(title: 'About')
+                        builder: (BuildContext context) => PageDemo(title: 'About')
                     )
                   );
                 },
@@ -29,9 +29,9 @@ class NavigatorDemo extends StatelessWidget {
   }
 }
 
-class Page extends StatelessWidget {
+class PageDemo extends StatelessWidget {
   final String title;
-  Page({
+  PageDemo({
     this.title
 });
   @override

@@ -15,7 +15,7 @@ class PostShow extends StatelessWidget {
       ),
       body: Column(
         children: [
-          Image.network(post.imageUrl),
+          // Image.network(post.imageUrl),
           Container(
             padding: EdgeInsets.all(32.0),
             width: double.infinity,
