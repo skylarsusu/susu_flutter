@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:susu_flutter/Demo/switch_demo_new.dart';
 import 'form_demo.dart';
 import 'checkbox_demo.dart';
 import 'radio_demo.dart';
+import 'slider_demo.dart';
+import 'detetime_demo.dart';
 
 class MaterialComponents extends StatelessWidget {
   @override
@@ -13,7 +16,10 @@ class MaterialComponents extends StatelessWidget {
       ),
       body: ListView(
         children: [
+          ListItem(title: 'DateTimeDemo', page: DateTimeDemo()),
+          ListItem(title: 'SliderDemo', page: SliderDemo()),
           ListItem(title: 'RadioDemo', page: RadioDemo()),
+          ListItem(title: 'SwitchDemo', page: SwitchDemo()),
           ListItem(title: 'CheckBoxDemo', page: CheckBoxDemo()),
           ListItem(title: 'Form', page: FormDemo()),
           ListItem(title: 'PopupMenuButtonDemo', page: PopupMenuButtonDemo()),
