@@ -5,6 +5,7 @@ import 'checkbox_demo.dart';
 import 'radio_demo.dart';
 import 'slider_demo.dart';
 import 'detetime_demo.dart';
+import 'simple_dialog_demo.dart';
 
 class MaterialComponents extends StatelessWidget {
   @override
@@ -16,6 +17,7 @@ class MaterialComponents extends StatelessWidget {
       ),
       body: ListView(
         children: [
+          ListItem(title: 'SimpleDialog', page: SimpleDialogDemo()),
           ListItem(title: 'DateTimeDemo', page: DateTimeDemo()),
           ListItem(title: 'SliderDemo', page: SliderDemo()),
           ListItem(title: 'RadioDemo', page: RadioDemo()),
