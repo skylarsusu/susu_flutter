@@ -6,6 +6,7 @@ import 'radio_demo.dart';
 import 'slider_demo.dart';
 import 'detetime_demo.dart';
 import 'simple_dialog_demo.dart';
+import 'expansion_panel_demo.dart';
 
 class MaterialComponents extends StatelessWidget {
   @override
@@ -17,6 +18,7 @@ class MaterialComponents extends StatelessWidget {
       ),
       body: ListView(
         children: [
+          ListItem(title: 'ExpansionPanelDemo', page: ExpansionPanelDemo()),
           ListItem(title: 'SimpleDialog', page: SimpleDialogDemo()),
           ListItem(title: 'DateTimeDemo', page: DateTimeDemo()),
           ListItem(title: 'SliderDemo', page: SliderDemo()),
