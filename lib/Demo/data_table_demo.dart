@@ -24,6 +24,9 @@ class _DataTableDemoState extends State<DataTableDemo> {
               DataTable(
                 sortColumnIndex: _sortColumnIndex,
                   sortAscending: _sortAscending,
+                  // onSelectAll: (bool value) {//全选
+                  //
+                  // },
                   columns: [
                     DataColumn(
                         label: Container(
@@ -57,6 +60,15 @@ class _DataTableDemoState extends State<DataTableDemo> {
                     ),
                   ],
                   rows: posts.map((e) => DataRow(
+                    selected: e.selected,
+                      onSelectChanged: (value) {
+                      setState(() {
+                        if(e.selected != value){
+                          e.selected = value;
+                        }
+                      });
+
+                      },
                       cells: [
                         DataCell(Text(e.title)),
                         DataCell(Text(e.author)),
