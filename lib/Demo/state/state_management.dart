@@ -19,41 +19,42 @@ class _StatefulManagementDemoState extends State<StatefulManagementDemo> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('StatefulManagementdemo'),
-        elevation: 0.0,
-      ),
-      body: CountWrapper(Count, _inceraseCount),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        onPressed: _inceraseCount,
+    return CounterProvider(
+      count: Count,
+      increaseCount: _inceraseCount,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text('StatefulManagementdemo'),
+          elevation: 0.0,
+        ),
+        body: CountWrapper(),
+        floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.add),
+          onPressed: _inceraseCount,
+        ),
       ),
     );
   }
 }
 
 class CountWrapper extends StatelessWidget {
-  final int  Count;
-  final VoidCallback increaseCount;
 
-  CountWrapper(this.Count, this.increaseCount);
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Counter(Count, increaseCount),
+      child: Counter(),
     );
   }
 }
 
 
 class Counter extends StatelessWidget {
-  final int  Count;
-  final VoidCallback increaseCount;
 
-  Counter(this.Count, this.increaseCount);
   @override
   Widget build(BuildContext context) {
+    final int  Count = CounterProvider.of(context).count;
+    final VoidCallback increaseCount = CounterProvider.of(context).increaseCount;
+
     return ActionChip(
         label: Text('$Count'),
         onPressed: increaseCount,
@@ -87,3 +88,25 @@ class StateManagementDemo extends StatelessWidget {
   }
 }
 //点击按钮数字并不会发生变化，因为是StatelessWidget
+
+
+class CounterProvider extends InheritedWidget {
+  final int count;
+  final VoidCallback increaseCount;
+  final Widget child;
+
+   CounterProvider({
+    this.count,
+    this.increaseCount,
+    this.child,
+  })  : super(child: child);
+
+  static CounterProvider of(BuildContext context) {
+    return context.dependOnInheritedWidgetOfExactType<CounterProvider>();
+  }
+
+  @override
+  bool updateShouldNotify(CounterProvider old) {
+    return true;
+  }
+}
