@@ -24,7 +24,7 @@ class _StatefulManagementDemoState extends State<StatefulManagementDemo> {
         title: Text('StatefulManagementdemo'),
         elevation: 0.0,
       ),
-      body: Counter(Count, _inceraseCount),
+      body: CountWrapper(Count, _inceraseCount),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: _inceraseCount,
@@ -33,6 +33,20 @@ class _StatefulManagementDemoState extends State<StatefulManagementDemo> {
   }
 }
 
+class CountWrapper extends StatelessWidget {
+  final int  Count;
+  final VoidCallback increaseCount;
+
+  CountWrapper(this.Count, this.increaseCount);
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Counter(Count, increaseCount),
+    );
+  }
+}
+
+
 class Counter extends StatelessWidget {
   final int  Count;
   final VoidCallback increaseCount;
@@ -40,11 +54,9 @@ class Counter extends StatelessWidget {
   Counter(this.Count, this.increaseCount);
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: ActionChip(
+    return ActionChip(
         label: Text('$Count'),
         onPressed: increaseCount,
-      ),
     );
   }
 }
