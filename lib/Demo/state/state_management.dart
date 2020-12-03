@@ -7,6 +7,16 @@ class StatefulManagementDemo extends StatefulWidget {
 
 class _StatefulManagementDemoState extends State<StatefulManagementDemo> {
   int Count = 0;
+  void _inceraseCount() {
+    setState(() {
+      setState(() {
+        Count += 1;
+      });
+
+      print('count: $Count');
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,16 +24,10 @@ class _StatefulManagementDemoState extends State<StatefulManagementDemo> {
         title: Text('StatefulManagementdemo'),
         elevation: 0.0,
       ),
-      body: Counter(Count),
+      body: Counter(Count, _inceraseCount),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
-        onPressed: () {
-          setState(() {
-            Count += 1;
-          });
-
-          print('count: $Count');
-        },
+        onPressed: _inceraseCount,
       ),
     );
   }
@@ -31,12 +35,15 @@ class _StatefulManagementDemoState extends State<StatefulManagementDemo> {
 
 class Counter extends StatelessWidget {
   final int  Count;
-  Counter(this.Count);
+  final VoidCallback increaseCount;
+
+  Counter(this.Count, this.increaseCount);
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Chip(
+      child: ActionChip(
         label: Text('$Count'),
+        onPressed: increaseCount,
       ),
     );
   }
