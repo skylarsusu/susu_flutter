@@ -30,7 +30,7 @@ class App extends StatelessWidget{
         '/about': (context) => PageDemo(title: 'About'),
         '/form': (context) => FormDemo(),
         '/mdc': (context) => MaterialComponents(),
-        '/state-management': (context) => StatefulManagementDemo(),
+        '/state-management': (context) => StateManagementDemo(),
       },
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
