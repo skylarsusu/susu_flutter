@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:susu_flutter/Demo/PaginateDataTableDemo.dart';
+import 'package:susu_flutter/Demo/card_demo.dart';
 import 'package:susu_flutter/Demo/switch_demo_new.dart';
 import 'form_demo.dart';
 import 'checkbox_demo.dart';
@@ -11,6 +12,7 @@ import 'expansion_panel_demo.dart';
 import 'chip_demo.dart';
 import 'data_table_demo.dart';
 import 'PaginateDataTableDemo.dart';
+import 'chip_demo.dart';
 
 class MaterialComponents extends StatelessWidget {
   @override
@@ -22,6 +24,7 @@ class MaterialComponents extends StatelessWidget {
       ),
       body: ListView(
         children: [
+          ListItem(title: 'CardDemo', page: CardDemo()),
           ListItem(title: 'PaginatedDataTableDemo', page: PaginateDataTableDemo()),
           ListItem(title: 'DataTableDemo', page: DataTableDemo()),
           ListItem(title: 'ChipDemo', page: ChipDemo()),
