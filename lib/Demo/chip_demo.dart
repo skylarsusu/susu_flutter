@@ -13,6 +13,7 @@ class _ChipDemoState extends State<ChipDemo> {
   ];
   List<String> _selected = [];
   String _action = 'Nothing';
+  String _choice = 'Lemon';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,7 +63,7 @@ class _ChipDemoState extends State<ChipDemo> {
                 ),
                 Divider(//浅灰色分割线
                   color: Colors.red,
-                  height: 32.0,
+                  height: 5.0,
                   // indent: 32.0,//缩进
                 ),
 
@@ -79,7 +80,7 @@ class _ChipDemoState extends State<ChipDemo> {
                 ),
                 Divider(//浅灰色分割线
                   color: Colors.red,
-                  height: 32.0,
+                  height: 5.0,
                   // indent: 32.0,//缩进
                 ),
 
@@ -106,7 +107,7 @@ class _ChipDemoState extends State<ChipDemo> {
                 ),
                 Divider(//浅灰色分割线
                   color: Colors.red,
-                  height: 32.0,
+                  height: 5.0,
                   // indent: 32.0,//缩进
                 ),
 
@@ -133,6 +134,37 @@ class _ChipDemoState extends State<ChipDemo> {
 
                   ).toList(),
                 ),
+                Divider(//浅灰色分割线
+                  color: Colors.red,
+                  height: 5.0,
+                  // indent: 32.0,//缩进
+                ),
+
+                Container(
+                  width: double.infinity,
+                  child: Text('ChoiceChip: $_choice'),
+
+                ),
+                Wrap(
+                  spacing: 8.0,
+                  children: _tags.map((e) => ChoiceChip(
+                    label: Text(e,
+                        style: TextStyle(
+                          color: Colors.white70,
+                        )
+                    ),
+                    selected: _choice == e,
+                    onSelected: (value) {
+                      setState(() {
+                        _choice = e;
+                      });
+
+                    },
+                    selectedColor: Colors.black87,
+                  )
+
+                  ).toList(),
+                ),
 
               ],
 
@@ -150,6 +182,7 @@ class _ChipDemoState extends State<ChipDemo> {
               'Lemon',
             ];
             _selected = [];
+            _choice = 'Lemon';
           });
         },
       ),
