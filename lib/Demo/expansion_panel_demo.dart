@@ -91,8 +91,6 @@ class _ExpansionPanelDemoState extends State<ExpansionPanelDemo> {
                     ),
                   );
                 }
-
-
               )).toList(),
               // children: _expansionPanelItems.map(
               //         (ExpansionPanelItem item){
