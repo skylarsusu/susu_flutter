@@ -27,7 +27,8 @@ class _RxDartDemoHomeState extends State<RxDartDemoHome> {
     // TODO: implement initState
     super.initState();
 
-    PublishSubject<String> _subject = PublishSubject<String>();
+    // PublishSubject<String> _subject = PublishSubject<String>();
+    BehaviorSubject<String> _subject = BehaviorSubject<String>();
 
     _subject.listen((value) {
       print('listen 1 : $value');
