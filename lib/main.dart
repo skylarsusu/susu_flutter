@@ -12,6 +12,7 @@ import 'Demo/form_demo.dart';
 import 'Demo/material_components.dart';
 import './Demo/state/state_management.dart';
 import './Demo/stream/stream_demo.dart';
+import './Demo/rxdart/rxdart_demo.dart';
 
 void main() => runApp(App());
 
@@ -25,7 +26,7 @@ class App extends StatelessWidget{
       // home: Home(),
       // home: SliverDemo(),
       // home: NavigatorDemo(),
-      initialRoute: '/stream',
+      initialRoute: '/rxdart',
       routes: {
         '/': (context) => Home(),
         '/about': (context) => PageDemo(title: 'About'),
@@ -33,6 +34,7 @@ class App extends StatelessWidget{
         '/mdc': (context) => MaterialComponents(),
         '/state-management': (context) => StateManagementDemo(),
         '/stream': (context) => StreamDemo(),
+        '/rxdart': (context) => RxDartDemo(),
       },
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
