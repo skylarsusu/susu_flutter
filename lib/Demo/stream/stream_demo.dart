@@ -25,6 +25,7 @@ class _StreamDemoHomeState extends State<StreamDemoHome> {
   // Stream<String> _streamDemo;
   StreamController<String> _streamDemo;
   StreamSink _sinkDemo;
+  String _data = '...';
 
   @override
   void dispose() {
@@ -40,11 +41,16 @@ class _StreamDemoHomeState extends State<StreamDemoHome> {
 
     print('create a stream');
     // _streamDemo = Stream.fromFuture(fetchData());
-    _streamDemo = StreamController<String>();
+    // _streamDemo = StreamController<String>();
+    _streamDemo = StreamController.broadcast();
 
     _sinkDemo = _streamDemo.sink;
     print('start listening on a stream');
+
     _streamDemoSubscription = _streamDemo.stream.listen((event) {
+      setState(() {
+        _data = event;
+      });
       print('$event');
     },
       onError: (error){
@@ -54,8 +60,21 @@ class _StreamDemoHomeState extends State<StreamDemoHome> {
         print('done!');
       }
     );
+
+    _streamDemo.stream.listen((event) {
+      print('onDataTwo: $event');
+    },
+        onError: (error){
+          print('error: $error');
+        },
+        onDone: (){
+          print('done!');
+        }
+    );
+
     print('Initialize conplete');
   }
+
 
   Future<String> fetchData() async {
     await Future.delayed(Duration(seconds: 5));
@@ -86,26 +105,32 @@ class _StreamDemoHomeState extends State<StreamDemoHome> {
   Widget build(BuildContext context) {
     return Container(
       child: Center(
-        child: Row(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            FlatButton(
-              onPressed: _addDataToStream,
-              child: Text('Add'),
-            ),
-            FlatButton(
-                onPressed: _pauseStream,
-                child: Text('Pause'),
-            ),
-            FlatButton(
-                onPressed: _resumeStream,
-                child: Text('Resum'),
-            ),           FlatButton(
-                onPressed: _cancelStream,
-                child: Text('cancel'),
-            ),
+            Text(_data),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                FlatButton(
+                  onPressed: _addDataToStream,
+                  child: Text('Add'),
+                ),
+                FlatButton(
+                    onPressed: _pauseStream,
+                    child: Text('Pause'),
+                ),
+                FlatButton(
+                    onPressed: _resumeStream,
+                    child: Text('Resum'),
+                ),           FlatButton(
+                    onPressed: _cancelStream,
+                    child: Text('cancel'),
+                ),
 
 
+              ],
+            ),
           ],
         ),
       ),
