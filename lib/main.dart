@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:susu_flutter/Demo/bloc/bloc_demo.dart';
 import 'model/post.dart';
 import 'Demo/ListViewDemo.dart';
 import 'Demo/DrawDemo.dart';
@@ -13,6 +14,7 @@ import 'Demo/material_components.dart';
 import './Demo/state/state_management.dart';
 import './Demo/stream/stream_demo.dart';
 import './Demo/rxdart/rxdart_demo.dart';
+import './Demo/bloc/bloc_demo.dart';
 
 void main() => runApp(App());
 
@@ -26,7 +28,7 @@ class App extends StatelessWidget{
       // home: Home(),
       // home: SliverDemo(),
       // home: NavigatorDemo(),
-      initialRoute: '/rxdart',
+      initialRoute: '/bloc',
       routes: {
         '/': (context) => Home(),
         '/about': (context) => PageDemo(title: 'About'),
@@ -35,6 +37,7 @@ class App extends StatelessWidget{
         '/state-management': (context) => StateManagementDemo(),
         '/stream': (context) => StreamDemo(),
         '/rxdart': (context) => RxDartDemo(),
+        '/bloc': (context) => BlocDemo(),
       },
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
