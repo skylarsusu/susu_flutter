@@ -35,9 +35,16 @@ class _RxDartDemoHomeState extends State<RxDartDemoHome> {
     super.initState();
 
     _textFiledSubject = PublishSubject<String>();
-    _textFiledSubject.listen((value) {
-      print(value);
+    _textFiledSubject
+        // .map((event) => 'item: $event')
+    // .where((event) => event.length > 1)
+    .debounceTime(Duration(milliseconds: 500))
+    .listen((event) {
+      print(event);
     });
+    // _textFiledSubject.listen((value) {
+    //   print(value);
+    // });
 
     // _textFiledSubject.close();
 /*
