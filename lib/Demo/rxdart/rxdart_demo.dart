@@ -21,12 +21,26 @@ class RxDartDemoHome extends StatefulWidget {
 }
 
 class _RxDartDemoHomeState extends State<RxDartDemoHome> {
+  PublishSubject<String> _textFiledSubject;
 
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    _textFiledSubject.close();
+  }
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
 
+    _textFiledSubject = PublishSubject<String>();
+    _textFiledSubject.listen((value) {
+      print(value);
+    });
+
+    // _textFiledSubject.close();
+/*
     // PublishSubject<String> _subject = PublishSubject<String>();
     // BehaviorSubject<String> _subject = BehaviorSubject<String>();//两个消息都可以听到，若两个消息挨着会听到后面的消息
     ReplaySubject<String> _subject = ReplaySubject<String>(maxSize: 2);//监听器可以听到所有的消息,maxSize: 2控制监听的最大信息量，此为后两个
@@ -48,9 +62,28 @@ class _RxDartDemoHomeState extends State<RxDartDemoHome> {
     // Observable<String> _observable;
 
     _subject.close();
+
+ */
   }
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Theme(
+        data: Theme.of(context).copyWith(
+          primaryColor: Colors.black,
+        ),
+        child: TextField(
+          onChanged: (value) {
+            _textFiledSubject.add('input: $value');
+          },
+          onSubmitted: (value) {
+            _textFiledSubject.add('submit: $value');
+          },
+          decoration: InputDecoration(
+            labelText: 'Title',
+            filled: true,
+          ),
+
+        )
+    );
   }
 }
