@@ -1,0 +1,6 @@
+framework module flutter_jd_address_selector {
+  umbrella header "flutter_jd_address_selector-umbrella.h"
+
+  export *
+  module * { export * }
+}

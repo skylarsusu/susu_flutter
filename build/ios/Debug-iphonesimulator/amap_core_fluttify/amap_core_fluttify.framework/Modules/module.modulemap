@@ -1,0 +1,6 @@
+framework module amap_core_fluttify {
+  umbrella header "amap_core_fluttify-umbrella.h"
+
+  export *
+  module * { export * }
+}

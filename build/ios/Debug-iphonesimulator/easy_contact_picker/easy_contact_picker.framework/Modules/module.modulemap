@@ -1,0 +1,6 @@
+framework module easy_contact_picker {
+  umbrella header "easy_contact_picker-umbrella.h"
+
+  export *
+  module * { export * }
+}

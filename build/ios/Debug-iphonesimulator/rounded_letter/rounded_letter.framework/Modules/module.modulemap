@@ -1,0 +1,6 @@
+framework module rounded_letter {
+  umbrella header "rounded_letter-umbrella.h"
+
+  export *
+  module * { export * }
+}

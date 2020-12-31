@@ -1,0 +1,6 @@
+framework module foundation_fluttify {
+  umbrella header "foundation_fluttify-umbrella.h"
+
+  export *
+  module * { export * }
+}

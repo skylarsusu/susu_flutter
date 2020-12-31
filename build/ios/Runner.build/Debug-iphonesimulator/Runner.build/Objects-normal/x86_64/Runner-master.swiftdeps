@@ -1,0 +1,5 @@
+version: "Apple Swift version 5.2.4 (swiftlang-1103.0.32.9 clang-1103.0.32.53)"
+options: "3a1b9de5effa6205ae353e817ca01ca1"
+build_time: [1609427273, 893077000]
+inputs:
+  "/Users/subaojing/Desktop/susu_flutter/susu_flutter/ios/Runner/AppDelegate.swift": [1608465656, 0]

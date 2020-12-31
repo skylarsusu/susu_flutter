@@ -1,0 +1,6 @@
+framework module core_location_fluttify {
+  umbrella header "core_location_fluttify-umbrella.h"
+
+  export *
+  module * { export * }
+}

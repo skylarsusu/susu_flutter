@@ -1,0 +1,6 @@
+framework module flutter_charts {
+  umbrella header "flutter_charts-umbrella.h"
+
+  export *
+  module * { export * }
+}
